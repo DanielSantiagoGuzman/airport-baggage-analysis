@@ -6,7 +6,7 @@
 
 ## Business Problem
 
-Airlines and airports use baggage delivery time as a core operational KPI. Slow delivery frustrates passengers, creates missed connections, and signals process inefficiencies in ramp operations. Understanding the *distribution* of delivery times — not just the average enables better SLA setting, staffing decisions, and bottleneck identification.
+Airlines and airports use baggage delivery time as a core operational KPI. Slow delivery frustrates passengers, creates missed connections, and signals process inefficiencies in ramp operations. Understanding the *distribution* of delivery times, not just the average, enables better SLA setting, staffing decisions, and bottleneck identification.
 
 **Key questions:**
 1. What is the probability that a random flight delivers all bags within 21 minutes of landing?
