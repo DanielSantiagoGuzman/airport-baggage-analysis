@@ -101,7 +101,13 @@ The ~2 pp gap indicates the log-normal is a reasonable but slightly conservative
 # 1. Clone the repo
 git clone https://github.com/DanielSantiagoGuzman/airport-baggage-analysis.git
 cd airport-baggage-analysis
+```
 
+### 1.5. Get the data
+The dataset is not tracked in this repo due to file size.
+Download `Project_Data_2025.csv` and place it in the `data/` folder before running the notebook.
+
+```bash
 # 2. Install dependencies
 pip install -r requirements.txt
 
