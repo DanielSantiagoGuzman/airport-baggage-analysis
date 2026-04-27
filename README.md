@@ -1,4 +1,4 @@
-# Airport Baggage Delivery Time — EDA & Probability Analysis
+# Airport Baggage Delivery Time: EDA & Probability Analysis
 
 > **TL;DR:** Analyzed ~99K real airline baggage handling records to characterize delivery time distributions and estimate the probability of on-time delivery. After removing 18K+ invalid records, the clean dataset shows a mean delivery time of 15.5 minutes with an ~82% probability of delivering all bags within 21 minutes of landing.
 
@@ -45,7 +45,7 @@ Six categories of data issues were identified and quantified before removing any
 | Bag drop rate > 45 bags/min | 2,514 | 2.53% |
 
 ### 2. Cleaning Pipeline
-Fixes applied sequentially to preserve auditability. Z-score outlier removal (±2.5 SD) applied last, after structural issues were resolved — ensuring outlier detection isn't skewed by duplicates or impossible records.
+Fixes applied sequentially to preserve auditability. Z-score outlier removal (±2.5 SD) applied last, after structural issues were resolved, ensuring outlier detection isn't skewed by duplicates or impossible records.
 
 ### 3. Distribution Analysis
 The clean data is right-skewed (skewness ≈ 0.4), with most flights completing delivery in 11–19 minutes but a tail extending to ~32 minutes. A log-normal distribution was selected as the theoretical model because:
@@ -61,7 +61,7 @@ The clean data is right-skewed (skewness ≈ 0.4), with most flights completing 
 | Theoretical (log-normal CDF) | **80.0%** |
 | Difference | 2.2 percentage points |
 
-The ~2 pp gap indicates the log-normal is a reasonable but slightly conservative fit — the model slightly underestimates the probability at the 21-minute threshold.
+The ~2 pp gap indicates the log-normal is a reasonable but slightly conservative fit; the model slightly underestimates the probability at the 21-minute threshold.
 
 ---
 
