@@ -88,10 +88,10 @@ The ~2 pp gap indicates the log-normal is a reasonable but slightly conservative
 
 ## Tools & Libraries
 
-- **Python 3** — core analysis
-- **pandas** — data loading, cleaning, datetime parsing
-- **NumPy / SciPy** — statistical measures, Z-scores, distribution fitting
-- **Matplotlib / Seaborn** — visualization
+- **Python 3**: core analysis
+- **pandas**: data loading, cleaning, datetime parsing
+- **NumPy / SciPy**: statistical measures, Z-scores, distribution fitting
+- **Matplotlib / Seaborn**: visualization
 
 ---
 
@@ -109,7 +109,7 @@ pip install -r requirements.txt
 jupyter notebook notebooks/01_eda_cleaning.ipynb
 ```
 
-The notebook is self-contained — run all cells top to bottom. Output figures are saved to `outputs/`.
+The notebook is self-contained; run all cells top to bottom. Output figures are saved to `outputs/`.
 
 ---
 
