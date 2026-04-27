@@ -1,4 +1,4 @@
-# Airport Baggage Delivery Time — EDA & Performance Analysis
+# Airport Baggage Delivery Time: EDA & Performance Analysis
 
 > **TL;DR:** Analyzed ~99K real airline baggage handling records across 108 destination airports to characterize delivery time distributions, estimate on-time delivery probability, and identify which airports are driving performance gaps. After removing 18K+ invalid records, the clean dataset shows a mean delivery time of 15.5 minutes — but a 4–5x performance gap exists between the best and worst airports in the network.
 
@@ -6,11 +6,11 @@
 
 ## Business Problem
 
-Airlines and airports use baggage delivery time as a core operational KPI. Slow delivery frustrates passengers, creates missed connections, and signals process inefficiencies in ramp operations. Understanding the *distribution* of delivery times — not just the average — enables better SLA setting, staffing decisions, and bottleneck identification.
+Airlines and airports use baggage delivery time as a core operational KPI. Slow delivery frustrates passengers, creates missed connections, and signals process inefficiencies in ramp operations. Understanding the *distribution* of delivery times — not just the average enables better SLA setting, staffing decisions, and bottleneck identification.
 
 **Key questions:**
 1. What is the probability that a random flight delivers all bags within 21 minutes of landing?
-2. Which airports are the best and worst performers — and by how much?
+2. Which airports are the best and worst performers, and by how much?
 3. Does higher bag volume meaningfully slow down delivery?
 
 ---
@@ -28,7 +28,7 @@ Airlines and airports use baggage delivery time as a core operational KPI. Slow 
 
 **Derived variable:** `BaggageDeliveryTime` = `LastBagDropTime − ActualArrival` (minutes)
 
-**Raw data:** 99,174 rows · 108 destination airports · July 2021 – August 2022  
+**Raw data:** 99,174 rows · 108 destination airports · July 2021 to August 2022  
 **After cleaning:** 80,922 rows retained (18,252 records removed, ~18.4%)
 
 **Data:** The dataset was provided as part of a university course project and is not publicly redistributable. To reproduce the analysis, substitute any similarly structured flight operations dataset with the columns listed above.
@@ -37,7 +37,7 @@ Airlines and airports use baggage delivery time as a core operational KPI. Slow 
 
 ## Notebooks
 
-### `01_eda_cleaning.ipynb` — EDA, Cleaning & Probability Estimation
+### `01_eda_cleaning.ipynb`: EDA, Cleaning & Probability Estimation
 End-to-end data quality assessment, cleaning pipeline, and distribution analysis.
 
 | Section | Content |
@@ -48,7 +48,7 @@ End-to-end data quality assessment, cleaning pipeline, and distribution analysis
 | Distribution Visualization | Histogram, box plot, before/after comparison, hourly patterns |
 | Probability Estimation | Empirical (82.2%) vs. theoretical log-normal (80.0%) approaches |
 
-### `02_airport_analysis.ipynb` — Airport Performance Analysis
+### `02_airport_analysis.ipynb`: Airport Performance Analysis
 Airport-level rankings, tier classification, volume effects, and SQL replication with DuckDB.
 
 | Section | Content |
@@ -69,8 +69,8 @@ Airport-level rankings, tier classification, volume effects, and SQL replication
 | **P(< 21 minutes)** | 82.2% empirical / 80.0% log-normal theoretical |
 | **Airport performance gap** | Best airports: median ~5–6 min. Worst: ~27 min — a 4–5x spread |
 | **SLA compliance by tier** | Fast-tier airports: ~97% under 21 min. Slow-tier: ~55% |
-| **Bag volume effect** | r = 0.48 — each additional bag adds ~0.17 min to delivery time |
-| **Day-of-week effect** | Minimal — weekday vs. weekend difference is ~1 minute median |
+| **Bag volume effect** | r = 0.48; each additional bag adds ~0.17 min to delivery time |
+| **Day-of-week effect** | Minimal, weekday vs. weekend difference is ~1 minute median |
 | **Data quality impact** | 18.4% of raw records were invalid; analysis on uncleaned data would produce misleading results |
 
 ---
@@ -92,10 +92,10 @@ Airport-level rankings, tier classification, volume effects, and SQL replication
 Log-normal selected over normal because delivery time is strictly positive, the distribution is right-skewed, and log-transformed values are approximately normally distributed. The ~2 percentage point gap between empirical and theoretical estimates confirms a reasonable fit.
 
 ### Airport Analysis (Notebook 02)
-Airports with fewer than 100 flights excluded to ensure statistical reliability. Performance tiers assigned via terciles of median delivery time. Bag volume effect quantified via Pearson correlation and OLS regression across 80,922 flights.
+Airports with fewer than 100 flights were excluded to ensure statistical reliability. Performance tiers assigned via terciles of median delivery time. Bag volume effect quantified via Pearson correlation and OLS regression across 80,922 flights.
 
 ### SQL Replication (Notebook 02)
-DuckDB used to run ANSI SQL window functions directly on the pandas DataFrame — `RANK()` for airport ordering, `PERCENTILE_CONT` for exact p90 computation, `NTILE(3)` for tier assignment. Results validated against pandas output. The same queries translate directly to Snowflake or Redshift in a production environment.
+DuckDB used to run ANSI SQL window functions directly on the pandas DataFrame `RANK()` for airport ordering, `PERCENTILE_CONT` for exact p90 computation, `NTILE(3)` for tier assignment. Results validated against pandas output. The same queries translate directly to Snowflake or Redshift in a production environment.
 
 ---
 
@@ -144,7 +144,7 @@ jupyter notebook notebooks/01_eda_cleaning.ipynb
 jupyter notebook notebooks/02_airport_analysis.ipynb
 ```
 
-Both notebooks are self-contained — run all cells top to bottom. Output figures are saved to `outputs/`.
+Both notebooks are self-contained and run all cells top to bottom. Output figures are saved to `outputs/`.
 
 ---
 
