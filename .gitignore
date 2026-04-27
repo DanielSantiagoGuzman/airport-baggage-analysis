@@ -31,3 +31,4 @@ env/
 
 # PDF context files (local reference only)
 *.pdf
+data/*.csv
