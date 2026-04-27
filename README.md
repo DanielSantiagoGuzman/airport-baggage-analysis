@@ -1,6 +1,6 @@
 # Airport Baggage Delivery Time: EDA & Performance Analysis
 
-> **TL;DR:** Analyzed ~99K real airline baggage handling records across 108 destination airports to characterize delivery time distributions, estimate on-time delivery probability, and identify which airports are driving performance gaps. After removing 18K+ invalid records, the clean dataset shows a mean delivery time of 15.5 minutes — but a 4–5x performance gap exists between the best and worst airports in the network.
+> **TL;DR:** Analyzed ~99K real airline baggage handling records across 108 destination airports to characterize delivery time distributions, estimate on-time delivery probability, and identify which airports are driving performance gaps. After removing 18K+ invalid records, the clean dataset shows a mean delivery time of 15.5 minutes, but a 4–5x performance gap exists between the best and worst airports in the network.
 
 ---
 
