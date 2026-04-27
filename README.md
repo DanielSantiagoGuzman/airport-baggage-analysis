@@ -103,9 +103,7 @@ git clone https://github.com/DanielSantiagoGuzman/airport-baggage-analysis.git
 cd airport-baggage-analysis
 ```
 
-### 1.5. Get the data
-The dataset is not tracked in this repo due to file size.
-Download `Project_Data_2025.csv` and place it in the `data/` folder before running the notebook.
+**Data:** The dataset was provided as part of a university course project and is not publicly redistributable. To reproduce the analysis, substitute any similarly structured flight operations dataset with the following columns: `ActualArrival`, `FlightNumber`, `Origin`, `Destination`, `ExpectedBagsCount`, `FirstBagDropTime`, `LastBagDropTime`.
 
 ```bash
 # 2. Install dependencies
